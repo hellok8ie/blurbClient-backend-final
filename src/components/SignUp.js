@@ -21,8 +21,9 @@ const SignUp = () => {
 
     function handleSubmit(event) {
          event.preventDefault();
-         createUser(username, password).then(() => {
-            navigate('/signIn');
+         createUser(username, password, firstName, lastName, city, state, avatarURL)
+         .then(() => {
+            navigate('/');
          }).catch(error => {
             console.log(error);
             window.alert('Failed registration: User not created');
@@ -40,7 +41,7 @@ const SignUp = () => {
             </Form.Group>
             <Form.Group className="mb-3" >
                 <Form.Label>Password:</Form.Label>
-                <Form.Control type="text" name="password" value={password} onChange={e => setPassword(e.target.value)} />
+                <Form.Control type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
             </Form.Group>
             <Form.Group className="mb-3" >
                 <Form.Label>First Name:</Form.Label>
