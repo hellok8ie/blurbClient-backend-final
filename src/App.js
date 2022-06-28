@@ -11,7 +11,7 @@ function App() {
     <UserProvider>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element = {<Home/>}>
+        <Route exact path="/" element = {<Home/>}>
           <Route index element={<BlurbFeed/>}/>
           <Route path="/signup" element={<SignUp/>}/> 
         </Route>
