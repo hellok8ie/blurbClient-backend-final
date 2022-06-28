@@ -5,18 +5,21 @@ import Home from './components/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { UserProvider } from './contexts/UserProvider';
 import SignUp from './components/SignUp';
+import { BlurpProvider } from './contexts/BlurpProvider';
 
 function App() {
   return (
     <UserProvider>
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" element = {<Home/>}>
-          <Route index element={<BlurbFeed/>}/>
-          <Route path="/signup" element={<SignUp/>}/> 
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <BlurpProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element = {<Home/>}>
+            <Route index element={<BlurbFeed/>}/>
+            <Route path="/signup" element={<SignUp/>}/> 
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </BlurpProvider>
     </UserProvider>
   );
 }
