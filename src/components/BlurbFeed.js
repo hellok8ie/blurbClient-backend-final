@@ -8,6 +8,7 @@ const BlurbFeed = () => {
         <BlurpContext.Consumer>
         {
             ({ blurp }) => {
+
                 return <>
                     <h1>Blurb Feed</h1>
                         {blurp.map((b) => {
@@ -19,7 +20,9 @@ const BlurbFeed = () => {
                                         {b.blurp}
                                     </Card.Text>
                                     </Card.Body>
-                                    <Card.Footer>{b.updatedAt}</Card.Footer>
+                                    <Card.Footer>{b.User.username}{', '}
+                                    {(b.updatedAt)}
+                                    </Card.Footer>
                                 </Card>
                                 <br />
                                 </>
