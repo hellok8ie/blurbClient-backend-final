@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { UserProvider } from './contexts/UserProvider';
 import SignUp from './components/SignUp';
 import { BlurpProvider } from './contexts/BlurpProvider';
+import SignIn from './components/SignIn';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Routes>
           <Route exact path="/" element = {<Home/>}>
             <Route index element={<BlurbFeed/>}/>
-            <Route path="/signup" element={<SignUp/>}/> 
+            <Route path="/signup" element={<SignUp/>}/>
+            <Route path="/signin" element={<SignIn/>}/> 
           </Route>
         </Routes>
       </BrowserRouter>
