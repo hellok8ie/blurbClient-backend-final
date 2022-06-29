@@ -7,6 +7,7 @@ import { UserProvider } from './contexts/UserProvider';
 import SignUp from './components/SignUp';
 import { BlurpProvider } from './contexts/BlurpProvider';
 import SignIn from './components/SignIn';
+import UserProfile from './components/UserProfile';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Route exact path="/" element = {<Home/>}>
             <Route index element={<BlurbFeed/>}/>
             <Route path="/signup" element={<SignUp/>}/>
-            <Route path="/signin" element={<SignIn/>}/> 
+            <Route path="/signin" element={<SignIn/>}/>
+            <Route path='/profile/:id' element={<UserProfile/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

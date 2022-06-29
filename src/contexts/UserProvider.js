@@ -26,10 +26,21 @@ export const UserProvider = (props) => {
         );
     }
 
+    function getUser(id) {
+        let myHeaders = {
+            Authorization: `Bearer ${localStorage.getItem('myBlurbToken')}`
+        };
+
+        return axios.get(`${baseUrl}profile/` + id, { headers: myHeaders }).then(response => {
+            return new Promise(resolve => resolve(response.data));
+        });
+    };
+
     return (
         <UserContext.Provider value={{
             createUser,
-            signInUser
+            signInUser,
+            getUser
         }}>
             { props.children }
         </UserContext.Provider>

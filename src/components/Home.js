@@ -20,9 +20,9 @@ const Home = () => {
                     className="d-inline-block align-top"
                     />{' '}
                 </Navbar.Brand>
-                    <Nav.Link href="/about">Sign Up</Nav.Link>
-                    <Nav.Link href="/products">Sign In</Nav.Link>
-                    <Nav.Link href="/products/add">All Blurbs</Nav.Link>
+                    <Nav.Link href="/signup">Sign Up</Nav.Link>
+                    <Nav.Link href="/signin">Sign In</Nav.Link>
+                    <Nav.Link href="/">All Blurbs</Nav.Link>
                 </Container>
             </Navbar>
             <Outlet/>
