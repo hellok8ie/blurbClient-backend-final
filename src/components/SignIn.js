@@ -18,7 +18,8 @@ const SignIn = () => {
             navigate('/');
         }).catch(error => {
             console.log(error);
-            window.alert('Failed Login');
+            window.alert('User Not Found');
+            navigate('/signup');
         });
     };
 
