@@ -44,7 +44,7 @@ const EditBlurp = () => {
         <div>
             <br></br>
             <form onSubmit={handleSubmit}>
-                <input placeholder="New Blurp" type="text" name="blurp" value={editedBlurp.blurp} onChange={handleChange} />
+                <textarea placeholder="New Blurp" type="text" name="blurp" value={editedBlurp.blurp} onChange={handleChange} />
                 <br></br><br></br>
                 <button>Update!</button>
             </form>

@@ -51,7 +51,7 @@ const BlurbFeed = () => {
                     <h1>Blurb Feed</h1>
                         {user.userId && 
                             <form onSubmit={handleSubmit}>
-                                <input placeholder="New Blurp" type="text" name="blurp" value={newBlurpPost.blurp} onChange={handleChange} />
+                                <textarea placeholder="New Blurp" type="text" name="blurp" value={newBlurpPost.blurp} onChange={handleChange} />
                                 <br></br><br></br>
                                 <button>Blurp!</button>
                             </form>
