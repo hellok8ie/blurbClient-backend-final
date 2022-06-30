@@ -9,22 +9,14 @@ import { useNavigate } from 'react-router-dom';
 const SignUp = () => {
 
     let [ newUser, setNewUser] = useState({
-        username: '',
-        password: '',
-        firstName: '',
-        lastName: '',
-        city: '',
-        state: '',
-        avatarURL: ''
+        username: null,
+        password: null,
+        firstName: null,
+        lastName: null,
+        city: null,
+        state: null,
+        avatarURL: null
     })
-
-    // const [username, setUserName] = useState("");
-    // const [password, setPassword] = useState("");
-    // const [firstName, setFirstName] = useState("");
-    // const [lastName, setLastName] = useState("");
-    // const [city, setCity] = useState("");
-    // const [state, setUsState] = useState("");
-    // const [avatarURL, setAvatarURL] = useState("");
 
     let { createUser } = useContext(UserContext);
     let navigate = useNavigate();
@@ -39,7 +31,7 @@ const SignUp = () => {
          event.preventDefault();
          createUser(newUser)
          .then(() => {
-            navigate('/');
+            navigate('/signin');
          }).catch(error => {
             console.log(error);
             window.alert('Failed registration: User not created');
