@@ -5,7 +5,7 @@ import BlurpContext from "./BlurpContext";
 
 export const BlurpProvider = (props) => {
 
-    const [ blurp, setBlurp ] = useState([]);
+    const [ blurps, setBlurps ] = useState([]);
 
     const baseUrl = "http://localhost:3000/api/blurps/";
 
@@ -17,7 +17,7 @@ export const BlurpProvider = (props) => {
     }, []);
 
     function getAllBlurps() {
-        return axios.get(baseUrl).then(response => setBlurp(response.data));
+        return axios.get(baseUrl).then(response => setBlurps(response.data));
     };
 
     function getBlurp(id) {
@@ -26,12 +26,12 @@ export const BlurpProvider = (props) => {
         });
     };
 
-    function newBlurp(blurp) {        
+    function newBlurp(newBlurpPost) {        
         let myHeaders = {
             Authorization: `Bearer ${localStorage.getItem('myBlurpToken')}`
         };
     
-        return axios.post(baseUrl, blurp, { headers: myHeaders })
+        return axios.post(baseUrl, newBlurpPost, { headers: myHeaders })
             .then(response => {
                 getAllBlurps();
                 return new Promise(resolve => resolve(response.data));
@@ -66,7 +66,7 @@ export const BlurpProvider = (props) => {
 
     return (
         <BlurpContext.Provider value={{
-            blurp,
+            blurps,
             getBlurp,
             newBlurp,
             editBlurp,

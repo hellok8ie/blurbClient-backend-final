@@ -1,10 +1,21 @@
 import axios from "axios";
 import UserContext from "./UserContext";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const UserProvider = (props) => {
 
+    const [user, setUser] = useState([]);
     const baseUrl = "http://localhost:3000/api/users/";
+
+    console.log(user)
+
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem('user');
+        if (loggedInUser) {
+          const foundUser = JSON.parse(loggedInUser);
+          setUser(foundUser);
+        }
+      }, []);
 
     function createUser(newUser) {       
 
@@ -16,19 +27,21 @@ export const UserProvider = (props) => {
     }
 
     function signInUser(username, password) {
-        let user = { username, password };
+        let userInfo = { username, password };
     
-        return axios.post(`${baseUrl}login`, user)
+        return axios.post(`${baseUrl}login`, userInfo)
             .then(response => {
-                localStorage.setItem('myBlurbToken', response.data.token)
+                setUser(response.data.existingUser)
+                localStorage.setItem('myBlurpToken', response.data.token)
+                localStorage.setItem('user', JSON.stringify(response.data.existingUser))
                 return new Promise(resolve => resolve(response.data));
             }
         );
     }
 
-    function getUser(id) {
+    function getUserProfile(id) {
         let myHeaders = {
-            Authorization: `Bearer ${localStorage.getItem('myBlurbToken')}`
+            Authorization: `Bearer ${localStorage.getItem('myBlurpToken')}`
         };
 
         return axios.get(`${baseUrl}profile/` + id, { headers: myHeaders }).then(response => {
@@ -38,9 +51,10 @@ export const UserProvider = (props) => {
 
     return (
         <UserContext.Provider value={{
+            user,
             createUser,
             signInUser,
-            getUser
+            getUserProfile
         }}>
             { props.children }
         </UserContext.Provider>

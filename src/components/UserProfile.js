@@ -1,42 +1,84 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import UserContext from '../contexts/UserContext';
 import Table from 'react-bootstrap/esm/Table';
+import { Button, Card } from 'react-bootstrap';
+import BlurpContext from '../contexts/BlurpContext';
 
 const UserProfile = () => {
 
     let {id} = useParams();
+    let navigate = useNavigate();
 
-    let { getUser } = useContext(UserContext);
-    let [ user, setUser ] = useState("");
+    let { blurps, deleteBlurp } = useContext(BlurpContext);
+    let { getUserProfile, user } = useContext(UserContext);
+    
+    let [ userProfile, setUserProfile ] = useState("");
 
     useEffect(() => {
         async function fetch() {
-            await getUser(id)
-            .then((user) => setUser(user))
+            await getUserProfile(id)
+            .then((userProfile) => setUserProfile(userProfile))
         }
         fetch()
-    }, [getUser, id]);
+    }, [getUserProfile, id]);
+
+    function handleDelete(id) {
+
+        deleteBlurp(id).then(() => {
+            alert('Blurp Gone!')
+            navigate('/')
+        }).catch(error => {
+            console.log(error);
+            navigate('/signin');
+        });
+    }
 
     return (
         <div>
-            <h1>User Profile: {user.username}</h1>
+            <h1>User Profile: {userProfile.username}</h1>
             <Table>
             <tbody>
                 <tr>
                 <td>Name:</td>
-                <td>{user.firstName}{' '}{user.lastName}</td>
+                <td>{userProfile.firstName}{' '}{userProfile.lastName}</td>
                 </tr>
                 <tr>
                 <td>Location: </td>
-                <td>{user.city}{', '}{user.state}</td>
+                <td>{userProfile.city}{', '}{userProfile.state}</td>
                 </tr>
                 <tr>
                 <td>Profile Created: </td>
-                <td>{(user.createdAt)}</td>
+                <td>{(userProfile.createdAt)}</td>
                 </tr>
             </tbody>
             </Table>
+            <h1>Blurbs Below:</h1>
+
+            {blurps.map((b) => {
+                            return (
+                                <>
+                                {userProfile.userId === b.userId &&
+                                <>
+                                <Card border="warning" style={{ width: '18rem' }} key={b.blurpId}>
+                                    <Card.Body>
+                                    <Card.Text>
+                                        {b.blurp}
+                                    </Card.Text>
+                                    </Card.Body>
+                                    <Card.Footer>
+                                        {user && user.userId === b.userId && <Link to={`/edit/${b.blurpId}`}>Edit</Link>}
+                                        {user && user.userId === b.userId && <Button onClick={handleDelete.bind(this, b.blurpId)}>Delete</Button>}
+                                        {b.User.username}{', '}
+                                        {(b.updatedAt)}
+                                    </Card.Footer>
+                                </Card>
+                                <br />
+                                </> }
+                                </>
+                            )
+                        })}
+
         </div>
 
     )
