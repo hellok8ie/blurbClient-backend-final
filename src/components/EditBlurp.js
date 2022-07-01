@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import BlurpContext from '../contexts/BlurpContext';
 import UserContext from '../contexts/UserContext';
 
+
 const EditBlurp = () => {
 
     let {id} = useParams();
@@ -42,11 +43,12 @@ const EditBlurp = () => {
 
     return (
         <div>
+        <h1>Edit Blurp</h1>
             <br></br>
             <form onSubmit={handleSubmit}>
-                <textarea placeholder="New Blurp" type="text" name="blurp" value={editedBlurp.blurp} onChange={handleChange} />
+                <textarea id='blurpInput' placeholder="New Blurp" type="text" name="blurp" value={editedBlurp.blurp} onChange={handleChange} />
                 <br></br><br></br>
-                <button>Update!</button>
+                <button id='blurpBtn'>Update!</button>
             </form>
         </div>
 

@@ -73,7 +73,7 @@ const UserProfile = () => {
             </table>
 
             <h1>Blurbs Below:</h1>
-
+            <br></br>
             {blurps.map((b) => {
                             return (
                                 <>

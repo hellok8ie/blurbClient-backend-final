@@ -14,22 +14,22 @@ import './styles/App.css';
 
 function App() {
   return (
-    <UserProvider>
-    <BlurpProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element = {<Home/>}>
-            <Route index element={<BlurbFeed/>}/>
-            <Route path="/signup" element={<SignUp/>}/>
-            <Route path="/signin" element={<SignIn/>}/>
-            <Route path="/edit/:id" element={<EditBlurp/>}/>
-            <Route path='/profile/edit/:id' element={<EditUserProfile/>}/>
-            <Route path='/profile/:id' element={<UserProfile/>}/>
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </BlurpProvider>
-    </UserProvider>
+      <UserProvider>
+      <BlurpProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element = {<Home/>}>
+              <Route index element={<BlurbFeed/>}/>
+              <Route path="/signup" element={<SignUp/>}/>
+              <Route path="/signin" element={<SignIn/>}/>
+              <Route path="/edit/:id" element={<EditBlurp/>}/>
+              <Route path='/profile/edit/:id' element={<EditUserProfile/>}/>
+              <Route path='/profile/:id' element={<UserProfile/>}/>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </BlurpProvider>
+      </UserProvider>
   );
 }
 
