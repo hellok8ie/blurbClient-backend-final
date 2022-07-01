@@ -9,6 +9,7 @@ import { BlurpProvider } from './contexts/BlurpProvider';
 import SignIn from './components/SignIn';
 import UserProfile from './components/UserProfile';
 import EditBlurp from './components/EditBlurp';
+import EditUserProfile from './components/EditUserProfile';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/signup" element={<SignUp/>}/>
             <Route path="/signin" element={<SignIn/>}/>
             <Route path="/edit/:id" element={<EditBlurp/>}/>
+            <Route path='/profile/edit/:id' element={<EditUserProfile/>}/>
             <Route path='/profile/:id' element={<UserProfile/>}/>
           </Route>
         </Routes>

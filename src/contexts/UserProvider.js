@@ -49,12 +49,26 @@ export const UserProvider = (props) => {
         });
     };
 
+    function editUser(user) {
+        let myHeaders = {
+            Authorization: `Bearer ${localStorage.getItem('myBlurpToken')}`
+        };
+
+        return axios.put(`${baseUrl}profile/edit/` + user.userId, user, { headers: myHeaders })
+            .then(response => {
+                getUserProfile(user.userId);
+                return new Promise(resolve => resolve(response.data));
+            }
+        );
+    };
+
     return (
         <UserContext.Provider value={{
             user,
             createUser,
             signInUser,
-            getUserProfile
+            getUserProfile,
+            editUser
         }}>
             { props.children }
         </UserContext.Provider>

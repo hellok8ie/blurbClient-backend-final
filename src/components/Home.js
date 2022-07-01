@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import { Button, Nav } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
-import { Link, Navigate, Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import logo from '../blurb-logos2.png';
 import UserContext from '../contexts/UserContext';
 

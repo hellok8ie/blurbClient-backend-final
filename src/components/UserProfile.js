@@ -53,6 +53,7 @@ const UserProfile = () => {
                 </tr>
             </tbody>
             </Table>
+            {userProfile.userId === user.userId && <Link to={`/profile/edit/${user.userId}`}>Edit Profile</Link>}
             <h1>Blurbs Below:</h1>
 
             {blurps.map((b) => {
