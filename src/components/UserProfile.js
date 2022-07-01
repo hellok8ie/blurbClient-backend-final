@@ -19,6 +19,10 @@ const UserProfile = () => {
         async function fetch() {
             await getUserProfile(id)
             .then((userProfile) => setUserProfile(userProfile))
+            .catch(error => {
+                console.log(error);
+                navigate('/signin');
+            })
         }
         fetch()
     }, [getUserProfile, id]);
@@ -53,7 +57,7 @@ const UserProfile = () => {
                 </tr>
             </tbody>
             </Table>
-            {userProfile.userId === user.userId && <Link to={`/profile/edit/${user.userId}`}>Edit Profile</Link>}
+            {user.userId && userProfile.userId === user.userId && <Link to={`/profile/edit/${user.userId}`}>Edit Profile</Link>}
             <h1>Blurbs Below:</h1>
 
             {blurps.map((b) => {

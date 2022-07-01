@@ -66,10 +66,12 @@ const BlurbFeed = () => {
                                         {b.blurp}
                                         <br></br>
                                         <br></br>
+                                        <>
                                         <div id='userControls'>
                                         {user && user.userId === b.userId && <Link id='editLink' to={`/edit/${b.blurpId}`}>Edit</Link>}{' '}
                                         {user && user.userId === b.userId && <Button id='deleteBtn' onClick={handleDelete.bind(this, b.blurpId)}>Delete</Button>}{' '}
                                         </div>
+                                        </>
                                     </Card.Text>
                                     </Card.Body>
                                     <Card.Footer id='cardFooter'>
