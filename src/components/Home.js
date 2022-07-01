@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import logo from '../blurb-logos2.png';
 import UserContext from '../contexts/UserContext';
+import '../styles/Home.css';
 
 const Home = () => {
 
@@ -26,14 +27,14 @@ const Home = () => {
 
     return (
         <>
-            <Navbar bg="dark" variant="dark">
-                <Container>
+            <Navbar>
+                <Container id='navContainer'>
                 <Navbar.Brand href="/">
                     <img
                     alt=""
                     src={logo}
-                    width="110"
-                    height="30"
+                    width="220"
+                    height="60"
                     className="d-inline-block align-top"
                     />{' '}
                 </Navbar.Brand>
@@ -44,10 +45,12 @@ const Home = () => {
                     <Nav.Link href="/signup">Sign Up</Nav.Link>
                     <Nav.Link href="/signin" hidden={isLoggedIn}>Sign In</Nav.Link>
                     <Nav.Link href="/">All Blurbs</Nav.Link>
-                    {user.userId && <Button onClick={handleLogOff}>Log Off</Button>}
+                    {user.userId && <Button id='logOffBtn' onClick={handleLogOff}>Log Off</Button>}
                 </Container>
             </Navbar>
+            <div id='outletDiv'>
             <Outlet/>
+            </div>
         </>
     )
 };

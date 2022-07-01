@@ -10,6 +10,7 @@ import SignIn from './components/SignIn';
 import UserProfile from './components/UserProfile';
 import EditBlurp from './components/EditBlurp';
 import EditUserProfile from './components/EditUserProfile';
+import './styles/App.css';
 
 function App() {
   return (

@@ -1,0 +1,41 @@
+#blurpCard {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    border-color: #F35DA5;
+    border-style: dotted;
+    border-width: 5px;
+    border-radius: 25px;
+    width: 800px;
+}
+
+.card-footer {
+    text-align: right;
+}
+
+#profileName {
+    font-family: 'Titan One', cursive;
+    color: #8CD9D1
+}
+
+#editLink {
+    color: #F35DA5;
+}
+
+#deleteBtn {
+    background-color: rgba(0,0,0,.55);
+    border: none;
+    padding: 3px 6px;
+}
+
+#userControls {
+    text-align: right;
+}
+
+#blurpInput {
+    resize: both;
+    padding: 0px;
+    vertical-align: bottom;
+}
+
+#blurpBtn {
+    background-color: #F35DA5;
+}

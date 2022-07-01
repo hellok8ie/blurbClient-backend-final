@@ -1,0 +1,30 @@
+#outletDiv {
+    padding: 30px;
+}
+
+.navbar {
+    background-color: #8CD9D1;
+    height: 80px;
+    font-size: larger;
+}
+
+.navContainer {
+    height: 40px;
+}
+
+.nav-link {
+    color: #F35DA5 !important
+}
+
+#logOffBtn {
+    background-color: rgba(0,0,0,.55);
+    border: none
+}
+
+#logOffBtn:hover {
+    background-color: #F35DA5
+}
+
+.navbar-light .navbar-text a {
+    color: #F35DA5 !important
+}
