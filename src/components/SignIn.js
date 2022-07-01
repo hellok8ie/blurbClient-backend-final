@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import '../styles/SignIn.css';
 
 const SignIn = () => {
 
@@ -26,6 +27,7 @@ const SignIn = () => {
     return (
             <Form onSubmit={handleSubmit}>
                 <h1>Sign In Here</h1>
+                <br></br>
                 <Form.Group className="mb-3">
                     <Form.Label>Username:</Form.Label>
                     <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)}/>
@@ -34,8 +36,8 @@ const SignIn = () => {
                     <Form.Label>Password:</Form.Label>
                     <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)}/>
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button id='logOnBtn' type="submit">
+                    Log In
                 </Button>
             </Form>
     )

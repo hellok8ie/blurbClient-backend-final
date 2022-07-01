@@ -1,0 +1,24 @@
+#profilePic {
+    border-radius: 50%;
+    width: 50%;
+  }
+
+#imgCell {
+    width: 25%;
+    height: 30%;
+    text-align: center;
+}
+
+#firstTable {
+    margin: 40px;
+    font-size: larger;
+}
+
+#firstTableRow {
+    height: 200px;
+}
+
+#editProfileLink {
+    color: #F35DA5;
+    align-self: right;
+}

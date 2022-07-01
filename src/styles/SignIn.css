@@ -1,0 +1,8 @@
+#logOnBtn {
+    background-color: #F35DA5;
+    border: 0px
+}
+
+#logOnBtn:hover {
+    background-color: #8CD9D1;
+}

@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { Container } from "react-bootstrap";
 import UserContext from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
-
+import '../styles/SignUp.css';
 
 const SignUp = () => {
 
@@ -42,7 +42,8 @@ const SignUp = () => {
         <Container>
         <br/>
         <h1>Sign Up Here!</h1>
-        <Form className="newForm" onSubmit={handleSubmit}>
+        <br></br>
+        <Form id='signUpForm' onSubmit={handleSubmit}>
             <Form.Group className="mb-3" >
                 <Form.Label>Username:</Form.Label>
                 <Form.Control type="text" name="username" value={newUser.username} onChange={handleChange} />
@@ -60,7 +61,7 @@ const SignUp = () => {
                 <Form.Control type="text" name="lastName" value={newUser.lastName} onChange={handleChange} />
             </Form.Group>
             <Form.Group className="mb-3" >
-                <Form.Label>City</Form.Label>
+                <Form.Label>City:</Form.Label>
                 <Form.Control type="text" name="city" value={newUser.city} onChange={handleChange} />
             </Form.Group>
             <Form.Group className="mb-3" >
@@ -70,9 +71,8 @@ const SignUp = () => {
             <Form.Group className="mb-3" >
                 <Form.Label>Profile Picture URL:</Form.Label>
                 <Form.Control type="url" name="avatarURL" value={newUser.avatarURL} onChange={handleChange} />
-                <Form.Text className="text-muted">Optional</Form.Text>
             </Form.Group>
-          <Button type="submit" className="saveBtn">Save</Button>
+          <Button type="submit" id="saveBtn">Start Blurping!</Button>
         </Form>
         <br/>
         </Container>

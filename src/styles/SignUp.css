@@ -1,0 +1,13 @@
+#signUpForm {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bolder;
+}
+
+#saveBtn {
+    background-color: #F35DA5;
+    border: 0px
+}
+
+#saveBtn:hover {
+    background-color: #8CD9D1;
+}

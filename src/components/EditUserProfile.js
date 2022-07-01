@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useNavigate, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
+import '../styles/EditUserProfile.css';
 
 const EditUserProfile = () => {
 
@@ -52,7 +53,8 @@ const EditUserProfile = () => {
         <Container>
         <br/>
         <h1>Edit {user.username}'s Profile</h1>
-        <Form className="editForm" onSubmit={handleSubmit}>
+        <br></br>
+        <Form id="editForm" onSubmit={handleSubmit}>
             <Form.Group className="mb-3" >
                 <Form.Label> First Name:</Form.Label>
                 <Form.Control type="text" name="firstName" value={profileUpdates.firstName} onChange={handleChange} />
@@ -62,7 +64,7 @@ const EditUserProfile = () => {
                 <Form.Control type="text" name="lastName" value={profileUpdates.lastName} onChange={handleChange} />
             </Form.Group>
             <Form.Group className="mb-3" >
-                <Form.Label>city:</Form.Label>
+                <Form.Label>City:</Form.Label>
                 <Form.Control type="text" name="city" value={profileUpdates.city} onChange={handleChange} />
             </Form.Group>
             <Form.Group className="mb-3" >
@@ -73,7 +75,7 @@ const EditUserProfile = () => {
                 <Form.Label>Profile Picture URL:</Form.Label>
                 <Form.Control type="url" name="avatarURL" value={profileUpdates.avatarURL} onChange={handleChange} />
             </Form.Group>
-            <Button type="submit" className="saveBtn">Save</Button>
+            <Button type="submit" id="saveBtn">Save</Button>
         </Form>
         <br/>
         </Container>
